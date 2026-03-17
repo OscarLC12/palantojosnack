@@ -31,7 +31,7 @@ import menu2 from "./assets/gallery/menu2.png";
 import menu3 from "./assets/gallery/menu3.png";
 import menu4 from "./assets/gallery/menu4.png";
 import menu5 from "./assets/gallery/menu5.png";
-import menu6 from "./assets/gallery/menu6-fixed.png";
+import menu6 from "./assets/gallery/menu6-fixedd.png";
 import menu7 from "./assets/gallery/menu7.png";
 import menu8 from "./assets/gallery/menu8.png";
 import menu9 from "./assets/gallery/menu9.png";
