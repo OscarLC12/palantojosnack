@@ -44,6 +44,11 @@ import galeria2 from "./assets/gallery/galeria2.png";
 import galeria3 from "./assets/gallery/galeria3.png";
 import galeria4 from "./assets/gallery/galeria4.png";
 
+const INSTAGRAM_URL = "https://www.instagram.com/palantojolv/";
+const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61582234388050";
+const WHATSAPP_URL = "https://wa.me/17025823041";
+const PHONE_NUMBER = "+1 702-582-3041";
+
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
   show: {
@@ -253,6 +258,19 @@ const packageMenuItems = [
   "Boba Dubai",
   "Churros",
   "Mangonadas",
+];
+
+const socialLinks = [
+  {
+    name: "Instagram",
+    href: INSTAGRAM_URL,
+    icon: Instagram,
+  },
+  {
+    name: "Facebook",
+    href: FACEBOOK_URL,
+    icon: Facebook,
+  },
 ];
 
 function FloatingBlobs() {
@@ -530,7 +548,9 @@ export default function App() {
                 initial={{ opacity: 0, x: 18 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
-                href="https://wa.me/17025823041"
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
                 className="hidden rounded-full bg-black px-6 py-3 text-sm font-bold text-white shadow-[0_12px_30px_rgba(0,0,0,0.18)] transition hover:bg-[#252525] sm:inline-flex"
@@ -659,15 +679,12 @@ export default function App() {
                     className="relative overflow-hidden rounded-[1.5rem]"
                   >
                     <img
-  src={menu13}
-  alt="Pal Antojo Snack Bar"
-  className="h-[760px] w-full object-cover object-top"
-/>
-
+                      src={menu13}
+                      alt="Pal Antojo Snack Bar"
+                      className="h-[760px] w-full object-cover object-top"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/8 to-transparent" />
                   </motion.div>
-
-                
                 </div>
               </div>
             </motion.div>
@@ -939,7 +956,9 @@ export default function App() {
                 <motion.a
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
-                  href="https://wa.me/17025823041"
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-[#d7be84] px-7 py-4 text-center font-bold text-black transition hover:bg-[#e6d4a7]"
                 >
                   <MessageCircle className="h-5 w-5" />
@@ -981,7 +1000,7 @@ export default function App() {
               {
                 icon: Phone,
                 title: "Teléfono",
-                lines: ["+1 702-582-3041"],
+                lines: [PHONE_NUMBER],
               },
               {
                 icon: MapPin,
@@ -1028,29 +1047,39 @@ export default function App() {
             </div>
 
             <div className="flex items-center gap-4">
-              {[Instagram, Facebook].map((Icon, index) => (
-                <motion.a
-                  key={index}
-                  href="#"
-                  whileHover={{ y: -4, scale: 1.08 }}
-                  whileTap={{ scale: 0.96 }}
-                  className="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 transition hover:border-[#d7be84] hover:text-[#d7be84]"
-                >
-                  <Icon className="h-5 w-5" />
-                </motion.a>
-              ))}
+              {socialLinks.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <motion.a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={item.name}
+                    title={item.name}
+                    whileHover={{ y: -4, scale: 1.08 }}
+                    whileTap={{ scale: 0.96 }}
+                    className="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 transition hover:border-[#d7be84] hover:text-[#d7be84]"
+                  >
+                    <Icon className="h-5 w-5" />
+                  </motion.a>
+                );
+              })}
             </div>
           </div>
         </footer>
 
         <motion.a
-          href="https://wa.me/17025823041"
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           initial={{ opacity: 0, scale: 0.7 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1, duration: 0.4 }}
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
           className="fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-black text-[#e8d6ad] shadow-[0_20px_40px_rgba(0,0,0,0.25)]"
+          aria-label="Enviar WhatsApp"
         >
           <MessageCircle className="h-7 w-7" />
         </motion.a>
